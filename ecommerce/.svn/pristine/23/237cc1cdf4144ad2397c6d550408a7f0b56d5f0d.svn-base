@@ -1,0 +1,204 @@
+.contre {
+    border: 3px solid #f0f0f0;
+    display: block;
+    width: 1100px;
+    margin: auto;
+    margin-top: 6vh;
+}
+
+.blockprof {
+    width: 100%;
+    display: inline-block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.titprof {
+    display: inline-block;
+    width: 100%;
+}
+
+.titprof h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    display: inline-block;
+    width: 100%;
+    text-transform: capitalize;
+    color: #252525;
+    margin-top: 0;
+    font-weight: 300;
+    line-height: 1.1;
+    font-size: 2rem;
+    box-sizing: inherit;
+    padding-left: 30px;
+
+}
+
+.blockgauche {
+    display: block;
+    position: relative;
+    float: left;
+    flex: 0 0 25%;
+    max-width: 25%;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 30px;
+}
+
+.blockgauche img {
+    vertical-align: middle;
+    border-style: none;
+    width: 100%;
+}
+
+.butonavatar {
+    padding: 0;
+    display: block;
+}
+
+.butonavatar .boutonenvoie {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    line-height: 45px;
+    background-color: #47bac1;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 0 15px;
+    transition: all .3s ease-in-out;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 0;
+    background-color: #47bac1;
+    border: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 0;
+    height: 50px;
+    width: 100%;
+    line-height: 52px;
+    transition: all 0.3s ease-in-out;
+}
+
+.blockdroite {
+    flex: 0 0 75%;
+    max-width: 65%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: inline-block;
+}
+
+.ligne {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.ligne label {
+    padding-left: 0;
+    margin-top: 10px;
+    text-align: right;
+    font-size: 15px;
+    padding-top: 0;
+    font-weight: 700;
+    flex: 0 0 25%;
+    max-width: 25%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+.blockinput {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.blockinput input {
+    border-radius: 0;
+    background-color: #f0f0f0;
+    border: 0;
+    height: 30px;
+    line-height: 44px;
+    box-shadow: none;
+    font-size: 14px;
+    padding: 13px 20px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    color: #797979;
+    width: 100%;
+    font-family: inherit;
+}
+
+.blockbouton {
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-bottom: 2vh;
+}
+
+.but {
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.but button {
+    background-color: #47bac1;
+    height: 45px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 0 15px;
+    border-radius: 0;
+    border: 0;
+    transition: all .3s ease-in-out;
+    text-transform: uppercase;
+    cursor: pointer;
+    float: right;
+    margin-right: 69px;
+}
+.erreurs{
+    text-align: center;
+    padding-left: 8vw;
+    color: red;
+    margin-bottom: 1vh;
+}
+
+#selectsexe {
+    font: normal normal normal 14px/1 FontAwesome, "Lato", sans-serif;
+    padding-left: 12px;
+    height: 50px;
+    width: 475px;
+    margin-bottom: 25px;
+}
+.erroravat1{
+    width: 100%;
+    margin-top: 20px;
+    color: red;
+    text-align: center;
+}

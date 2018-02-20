@@ -1,0 +1,184 @@
+/*------------------------------------ Debut banner --------------------------------------------*/
+
+.banner {
+    display: inline-block;
+    width: 100%;
+    background-color: #ececec;
+    height: 450px;
+}
+
+.contenu {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.imgpaire {
+    float: right;
+    width: auto;
+}
+
+.imgpaire img {
+    width: 650px;
+    margin-top: 30px;
+}
+
+.text {
+    display: inline-block;
+    margin-top: 95px;
+}
+
+.text h1 {
+    color: #797979;
+    font-weight: 300;
+}
+
+.text h2 {
+    color: #7a5470;
+    width: 200px;
+    font-weight: 300;
+}
+
+.text h3 {
+    line-height: 20px;
+    color: #252525;
+    font-weight: 300;
+}
+
+.bouton {
+    border: 3px solid #47bac1;
+    display: inline-block;
+    padding: 12px 50px 10px 25px;
+    transition: 0.3s;
+    color: black;
+    text-decoration: none;
+}
+
+.bouton:hover {
+    background-color: #47bac1;
+    transition: 0.3s;
+    color: white;
+}
+
+/*------------------------------------ Fin banner -----------------------------------------*/
+
+/*------------------------------------ Debut colection ------------------------------------*/
+
+.centre {
+    width: 1170px;
+    display: block;
+    margin: auto;
+}
+
+.collection h1 {
+    font-weight: 300;
+    border-bottom: solid #e0e0e0 5px;
+    padding-bottom: 20px;
+    ;
+}
+
+.centblock {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.block {
+    display: inline-block;
+    width: 220px;
+    transition: 0.3s;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#marcent {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.block img {
+    width: 100%;
+    max-width: 100%;
+    height: 264px;
+}
+
+.block a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.block:hover a {
+    color: #47bac1;
+    transition: 0.3s;
+}
+
+.cat {
+    color: black;
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+.voirplus {
+    border: solid #00bcd4;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    padding: 10px;
+    display: inline-block;
+    text-decoration: none;
+    color: #00bcd4;
+    transition: 0.3s;
+}
+
+.voirplus:hover {
+    background-color: #00bcd4;
+    color: white;
+    transition: 0.3s;
+}
+
+.centblock1 {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    text-align: center;
+}
+
+.block1 {
+    display: inline-block;
+    width: 220px;
+    transition: 0.3s;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.block1 img {
+    width: 100%;
+    max-width: 100%;
+    height: 264px;
+}
+
+.block1 a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.block1:hover a {
+    color: #47bac1;
+    transition: 0.3s;
+}
+
+.prix1 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #bdbdbd;
+    font-size: 22px
+}
+
+.milieu {
+    border: solid red;
+}

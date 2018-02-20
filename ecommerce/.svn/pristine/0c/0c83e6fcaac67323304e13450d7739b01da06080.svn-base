@@ -1,0 +1,11 @@
+<?php
+if(isset($_GET['id']))
+{
+    $idP = intval($_GET['id']);
+    $query = "DELETE FROM Produits WHERE ID = $idP";
+    $suppression = $bdd->prepare($query);
+    $suppression->execute();
+    header("Location: index.php?p=admin&supprod=success");
+}
+else
+    header("Location: index.php?p=admin&supprod=fail");

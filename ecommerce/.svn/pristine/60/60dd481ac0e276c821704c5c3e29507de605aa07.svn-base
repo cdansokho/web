@@ -1,0 +1,51 @@
+.centrecat {
+    width: 70%;
+    margin: auto;
+    margin-top: 10vh;
+    text-align: center;
+}
+
+.collection1 h1 {
+    font-weight: 300;
+    border-bottom: solid #e0e0e0 5px;
+    padding-bottom: 2vh;
+    margin-bottom: 5vh;
+}
+
+.centblock1 {
+    display: inline-block;
+    width: 100%;
+}
+
+.block11 {
+    display: inline-block;
+    width: 220px;
+    transition: 0.3s;
+}
+
+.block11 img {
+    width: 220px;
+    height: 264px;
+}
+
+#marcent {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.block11 a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.block11:hover a {
+    color: #47bac1;
+    transition: 0.3s;
+}
+.cat11{
+    color: black;
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: 300;
+}

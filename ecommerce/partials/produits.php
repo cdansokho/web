@@ -1,0 +1,49 @@
+<?php require_once("partials/head.php");
+if (isset($_GET['categorie']))
+    $idCategorie = $_GET['categorie'];
+?>
+<link rel="stylesheet" href="assets/styles/produits.css">
+<!-- Debut categorie -->
+<div class="centre">
+    <div class="centrecat">
+        <div class="collection1">
+            <?php
+            $req = $bdd->prepare("SELECT Libelle FROM Categories WHERE ID = :idCategorie");
+            $req->bindParam(':idCategorie', $idCategorie);
+            $req->execute();
+            $donnee = $req->fetch();
+            $req->closeCursor();
+            ?>
+                <h1>TOUS NOS PRODUITS DANS LA CATEGORIE
+                    <?php echo strtoupper($donnee['Libelle']) ?>
+                </h1>
+        </div>
+        <div class="centblock11">
+            <?php
+            $req = $bdd->prepare("SELECT * FROM Produits INNER JOIN Categorie_Produit ON Categorie_Produit.ID_produit = Produits.ID AND Categorie_Produit.ID_categorie = :idCategorie");
+            $req->bindParam(':idCategorie', $idCategorie);
+            $req->execute();
+            while ($donnee = $req->fetch())
+            {
+                $donnee['Prix_vente'] = number_format($donnee['Prix_vente'], 2, ',', ' ');
+                ?>
+                <a href="index.php?p=detail&produit=<?php echo $donnee['ID']?>">
+                    <div class="block11">
+                        <img src="<?php echo $donnee['Path_image']?>" alt="tshirt">
+                        <div class="cat1">
+                            <a href="index.php?p=detail&produit=<?php echo $donnee['ID']?>">
+                                <?php echo $donnee['Libelle']?>
+                            </a>
+                        </div>
+                        <div class="prix11">
+                            <?php echo $donnee['Prix_vente'] ?>€</div>
+                    </div>
+                </a>
+                <?php
+            }
+            $req->closeCursor();
+            ?>
+        </div>
+    </div>
+</div>
+<?php require_once("partials/foot.php"); ?>

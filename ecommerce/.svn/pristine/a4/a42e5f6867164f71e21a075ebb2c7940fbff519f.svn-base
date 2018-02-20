@@ -1,0 +1,209 @@
+/* Rollback */
+DROP DATABASE IF EXISTS bigbagbis_habi_a;
+
+/* Etape 02: Creation db */
+CREATE DATABASE bigbagbis_habi_a
+       DEFAULT CHARACTER SET utf8
+       DEFAULT COLLATE utf8_unicode_ci;
+USE bigbagbis_habi_a;
+
+
+/* Etape 03: Creation Tables*/
+
+CREATE TABLE Rôle
+(
+        ID INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        Libelle VARCHAR(100) NOT NULL,
+        Description TEXT,
+        Date_creation DATETIME NOT NULL,
+        Date_modification DATETIME NOT NULL
+);
+
+
+CREATE TABLE Type
+(
+	ID INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Description TEXT,
+	Date_creation DATETIME NOT NULL,
+        Date_modification DATETIME NOT NULL
+);
+
+CREATE TABLE Utilisateurs
+(
+	ID INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	Nom VARCHAR(100) NOT NULL,
+	Prenom VARCHAR(100) NOT NULL,
+	Email VARCHAR(255) NOT NULL UNIQUE,
+    Numero VARCHAR(10) NOT NULL UNIQUE,
+    Password VARCHAR(128) NOT NULL,
+    Path_image VARCHAR(255) DEFAULT 'assets/images/avatar.png',
+	Date_de_naissance DATE,
+	Ville VARCHAR(255) NOT NULL,
+	Adresse VARCHAR(255) NOT NULL,
+	Code_postale INT(5) UNSIGNED NOT NULL,
+	Pays VARCHAR(100) NOT NULL,
+	Sexe VARCHAR(8) NOT NULL,
+	Rôle INT UNSIGNED DEFAULT 2,
+	FOREIGN KEY (Rôle) REFERENCES Rôle(ID),
+	Date_creation DATETIME NOT NULL,
+	Date_modification DATETIME NOT NULL
+);
+
+CREATE TABLE Produits
+(
+	ID INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	Libelle VARCHAR(150) NOT NULL UNIQUE,
+	Description TEXT,
+    Type INT UNSIGNED DEFAULT 2,
+    FOREIGN KEY (Type) REFERENCES Type(ID),
+    Detail1 TEXT,
+    Detail2 TEXT,
+    Detail3 TEXT,
+    Detail4 TEXT,
+	Prix_achat FLOAT(5,2) UNSIGNED,
+	Prix_vente FLOAT(5,2) UNSIGNED,
+	Nombres_produit INT UNSIGNED,
+    Nombres_vendu INT UNSIGNED,
+	Path_image TEXT,
+	Path_mini_image1 TEXT,
+	Path_mini_image2 TEXT,
+	Path_mini_image3 TEXT,
+	Path_mini_image4 TEXT,
+	Date_creation DATETIME NOT NULL,
+        Date_modification DATETIME NOT NULL
+);
+
+CREATE TABLE Categories
+(
+	ID INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	Libelle VARCHAR(150) NOT NULL,
+	Description TEXT,
+	Path_image TEXT,
+	Date_creation DATETIME NOT NULL,
+        Date_modification DATETIME NOT NULL
+);
+
+CREATE TABLE Coupons
+(
+	ID INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	Libelle VARCHAR(15) NOT NULL UNIQUE,
+	Description TEXT,
+    Effet INT,
+	Date_creation DATETIME NOT NULL,
+        Date_modification DATETIME NOT NULL
+);
+
+CREATE TABLE Categorie_Produit
+(
+	ID_categorie INT UNSIGNED,
+	ID_produit INT UNSIGNED,
+	FOREIGN KEY (ID_categorie) REFERENCES Categories(ID),
+	FOREIGN KEY (ID_produit) REFERENCES Produits(ID)
+);
+
+CREATE TABLE Produit_Utilisateur
+(
+	ID_produit INT UNSIGNED,
+	ID_utilisateur INT UNSIGNED,
+    Quantite INT UNSIGNED NOT NULL DEFAULT 1,
+    Taille VARCHAR(5) NOT NULL,
+	FOREIGN KEY (ID_produit) REFERENCES Produits(ID),
+        FOREIGN KEY (ID_utilisateur) REFERENCES Utilisateurs(ID)
+);
+
+CREATE TABLE Utilisateur_Coupon
+(
+    ID_utilisateur INT UNSIGNED UNIQUE,
+    ID_coupon INT UNSIGNED,
+	FOREIGN KEY (ID_coupon) REFERENCES Coupons(ID),
+        FOREIGN KEY (ID_utilisateur) REFERENCES Utilisateurs(ID)
+);
+
+CREATE TABLE Affiche
+(
+    ID INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Libelle VARCHAR(150) NOT NULL,
+    ID_produit INT UNSIGNED,
+    FOREIGN KEY (ID_produit) REFERENCES Produits(ID),
+    Collection VARCHAR(50) NOT NULL,
+    Path_image TEXT,
+    Date_creation DATETIME NOT NULL,
+        Date_modification DATETIME NOT NULL
+);
+
+CREATE TABLE Newsletter
+(
+    ID INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Email VARCHAR(255) NOT NULL UNIQUE,
+    Date_envoi DATETIME NOT NULL
+
+);
+
+/* Etape 04 : Creation entree dans les differentes tables*/
+
+INSERT INTO Rôle (Libelle, Description, Date_creation, Date_modification) VALUES
+('Admin', 'Possede tous les droits', NOW(), NOW()),
+('User', 'Simple acheteur qui peut seulement consulter les articles et les acheter', NOW(), NOW());
+
+INSERT INTO Type (Description, Date_creation, Date_modification) VALUES
+('Taille en pointure', NOW(), NOW()),
+('Taille en XS, etc ...', NOW(), NOW());
+
+INSERT INTO Utilisateurs (Nom, Prenom, Email, Numero, Password, Date_de_naissance, Ville, Adresse, Code_postale, Pays, Sexe, Rôle, Date_creation, Date_modification) VALUES
+('Dansokho', 'Seru', 'dansok_c@etna-alternance.net', '0158325936', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1996-01-09', 'Paris', '132 rue des poissonnier', '75018', 'France', 'Masculin', 2, NOW(), NOW()),
+('Habi', 'Açal', 'habi_a@etna-alternance.net', '0158342358', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1999-10-23', 'Vitry-sur-seine', '3 Place des roses', '94400', 'France', 'Masculin', 1, NOW(), NOW()),
+('Asesu', 'Rebecca', 'asesu_r@etna-alternance.net', '0132536520', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1998-02-29', 'Paris', '110 rue des poissonnier', '75020', 'France', 'Feminin', 2, NOW(), NOW()),
+('Kaaris', 'Sevran', 'kaaris_s@etna-alternance.net', '0123540724', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1999-11-30', 'Vitry-sur-seine', '3 Place des mauves', '94400', 'France', 'Masculin', 2, NOW(), NOW()),
+('Sheguey', 'Vara', 'sheguey_v@etna-alternance.net', '0190543224', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1999-02-13', 'Vitry-sur-seine', '3 Place des vertes', '94400', 'France', 'Masculin', 2, NOW(), NOW()),
+('Cabrel', 'Francis', 'cabrel_f@etna-alternance.net', '0147540224', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1991-10-24', 'Vitry-sur-seine', '3 Place des jaunes', '94400', 'France', 'Masculin', 2, NOW(), NOW()),
+('Dion', 'Celine', 'dion_c@etna-alternance.net', '0140540224', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1990-11-23', 'Vitry-sur-seine', '3 Place des rouges', '94400', 'France', 'Masculin', 1, NOW(), NOW()),
+('Lannister', 'Jaime', 'lannis_j@etna-alternance.net', '0134540224', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1985-11-12', 'Vitry-sur-seine', '3 Place des blanches', '94400', 'France', 'Masculin', 2, NOW(), NOW()),
+('Sanson', 'Veronique', 'sanson_v@etna-alternance.net', '0170140224', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1975-00-15', 'Vitry-sur-seine', '3 Place des violettes', '94400', 'France', 'Masculin', 2, NOW(), NOW()),
+('Tom', 'Olive', 'tom_o@etna-alternance.net', '0124240224', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1700-10-23', 'Vitry-sur-seine', '3 Place des ballons', '94400', 'France', 'Masculin', 2, NOW(), NOW()),
+('Lebron', 'James', 'lebron_j@etna-alternance.net', '0120540224', 'c281ccfa81f1e31eb80117357f9f557fdf115de8980ededf0cc4260708cc913a336029f0a93fa3517d561cff5295ae6819a5a81803fb85924c0d32cdb27cc343', '1919-10-03', 'Vitry-sur-seine', '3 Place des grandes', '94400', 'France', 'Masculin', 2, NOW(), NOW());
+
+INSERT INTO Produits (Libelle, Description, Type, Detail1, Detail2, Detail3, Detail4, Path_image, Path_mini_image1, Path_mini_image2, Path_mini_image3, Path_mini_image4, Prix_achat, Prix_vente, Nombres_produit, Nombres_vendu, Date_creation, Date_modification) VALUES
+('Chaussures1', 'Chaussures lambdas 1', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.50, 1, 3, 4, NOW(), NOW()),
+('Chaussures2', 'Chaussures lambdas 2', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.70, 1.50, 1, 5, NOW(), NOW()),
+('Chaussures3', 'Chaussures lambdas 3', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.76, 1.20, 6, 6, NOW(), NOW()),
+('Chaussures4', 'Chaussures lambdas 4', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.60, 1.10, 8, 2, NOW(), NOW()),
+('Chaussures5', 'Chaussures lambdas 5', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.50, 1.79, 2, 15, NOW(), NOW()),
+('Chaussures6', 'Chaussures lambdas 6', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.55, 1.13, 17, 1, NOW(), NOW()),
+('Chaussures7', 'Chaussures lambdas 7', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.51, 2, 12, 3, NOW(), NOW()),
+('Chaussures8', 'Chaussures lambdas 8', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.58, 1.24, 20, 7, NOW(), NOW()),
+('Chaussures9', 'Chaussures lambdas 9', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.50, 2, 40, 10, NOW(), NOW()),
+('Chaussures10', 'Chaussures lambdas 10', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.74, 1.23, 3, 12, NOW(), NOW()),
+('Chaussures11', 'Chaussures lambdas 11', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.54, 1.63, 87, 14, NOW(), NOW()),
+('Chaussures12', 'Chaussures lambdas 12', 1, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/produit.png', 'assets/images/produit1.png' , 'assets/images/produit2.png', 'assets/images/produit3.png', 'assets/images/produit4.png', 0.54, 1.63, 87, 14, NOW(), NOW()),
+('Chapeau2', 'Chapeau noir basique 1', 2, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 1.50, 1.65, 18, 14, NOW(), NOW()),
+('Chapeau3', 'Chapeau noir simple 2', 2, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 1.01, 1.30, 27, 27, NOW(), NOW()),
+('Chapeau4', 'Chapeau noir basique 2', 2, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 'assets/images/chapeau.png', 0.59, 1.20, 43, 1, NOW(), NOW()),
+('Lunette2', 'Lunette noir basique 1', 2, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 1.50, 1.65, 18, 14, NOW(), NOW()),
+('Lunette3', 'Lunette noir simple 2', 2, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 1.01, 1.30, 27, 27, NOW(), NOW()),
+('Lunette4', 'Lunette noir basique 2', 2, 'Black, Crew Neck', '75% Cotton, 25% Rayon', 'Waterbased Ink', 'Wash Cold, dry low', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 'assets/images/lunette2.png', 0.59, 1.20, 43, 1, NOW(), NOW());
+
+INSERT INTO Categories (Libelle, Description, Path_image, Date_creation, Date_modification) VALUES
+('Chapeau', 'collection sac a dos hiver 2017','assets/images/chapeau.png', NOW(), NOW()),
+('Lunettes', 'collection Lunettes hiver 2017','assets/images/lunette2.png', NOW(), NOW()),
+('Chaussures', 'collection T-shirt hiver 2017', 'assets/images/produit.png', NOW(), NOW());
+
+INSERT INTO Categorie_Produit (ID_categorie, ID_produit) VALUES
+(3,1),(3,2),(3,3),(3,4),(3,5),(3,6),(3,7),(3,8),(3,9),(3,10),(3,11),(3,12),
+(1,13),(1,14),(1,15),
+(2,16),(2,17),(2,18);
+
+INSERT INTO Produit_Utilisateur (ID_produit, ID_utilisateur, Taille) VALUES
+(3,2,'44'),
+(13,2,'XS');
+
+INSERT INTO Coupons (Libelle, Description, Effet, Date_creation, Date_modification) VALUES
+('AE755F', 'Reduction de 15% sur la commande', 15, NOW(), NOW());
+
+INSERT INTO Utilisateur_Coupon (ID_utilisateur, ID_coupon) VALUES
+(2,1);
+
+INSERT INTO Affiche (Libelle, Collection, Path_image, ID_produit, Date_creation, Date_modification) VALUES
+('Canvas sneaker', 'ÉTÉ 2017', 'assets/images/Screen%20Shot%202017-10-31%20at%2012.25.05.png', 1, NOW(), NOW());
+
+INSERT INTO Newsletter (Email, Date_envoi) VALUES
+('habilol@gmail.com', NOW());

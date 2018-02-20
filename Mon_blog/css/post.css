@@ -1,0 +1,192 @@
+/*********************************************** Debut art css **************************************/
+
+.block {
+    width: 100%;
+    display: inline-block;
+    margin-top: 10vh;
+}
+
+.centre {
+    width: 70%;
+    margin: auto;
+}
+
+.imgpost {
+    margin: auto;
+    width: 100%;
+    max-width: 100%;
+    height: 30vh;
+}
+
+.titpost {
+    margin-top: 3vh;
+    line-height: 0.2;
+    color: #212121;
+}
+
+.imgpost img {
+    width: 100%;
+    height: 100%;
+}
+
+.infospost {
+    width: 100%;
+    color: #999;
+}
+
+.infospost span {
+    margin-left: 1vw;
+    font-size: 2.2vh;
+    color: black;
+}
+
+.infospost ul li {
+    display: inline;
+    margin-left: 0;
+}
+
+.infospost ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.contenu {
+    margin-top: 1.5%;
+    color: #999;
+    line-height: 1.8em;
+}
+.jaime{
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    background-color: aliceblue;
+    border-radius: 1px;
+    font-size: 1.5vh;
+    padding: 1vh;
+    transition: 0.5s;
+    cursor: pointer;    
+}
+.jaime:hover{
+    background-color: blue;
+    color: aliceblue;
+}
+.jaime:hover a{
+    color: aliceblue;
+}
+.jaimepas{
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    background-color: aliceblue;
+    border-radius: 1px;
+    font-size: 1.5vh;
+    padding: 1vh;
+    transition: 0.5s;
+    cursor: pointer;    
+}
+.jaimepas:hover{
+    background-color: red;
+    color: aliceblue;
+}
+.jaimepas:hover a{
+    color: aliceblue;
+}
+.aime {
+    display: inline-block;
+    width: 100%;
+    margin-top: 2%;
+}
+.aim{
+    color: blue;
+}
+.aimepas{
+    color: red;
+}
+.aime a{
+    text-decoration: none;
+}
+/*********************************************** Debut comment css **************************************/
+
+.titrecomments {
+    border: solid;
+    text-align: center;
+    width: 15vw;
+    font-size: 2vh;
+    padding: 1vh;
+    margin-top: 2vh;
+    border-radius: 10px;
+    background-color: #190608;
+    color: white;
+}
+
+.blockcomment {
+    color: #999;
+    line-height: 1.8em;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.infoposteur {
+    font-size: 2.4vh;
+    color: #333;
+}
+
+.infoposteur img {
+    margin-left: 2vh;
+}
+
+.contecomment {
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    display: inline-block;
+    width: 100%;
+}
+
+/*********************************************** Debut comment css **************************************/
+
+/*********************************************** Debut let comment css **********************************/
+
+.blockletcomment {
+    width: 100%;
+}
+
+.formcomment {
+    margin-top: 2vh;
+}
+
+.comment {
+    width: 50vw;
+    height: 20vh;
+    border: solid 1px;
+    border-radius: 10px;
+    font-size: 2vh;
+    text-align: center;
+}
+
+.blockletcomment button {
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+    border: solid;
+    background: #190608;
+    color: white;
+    width: 6vw;
+    border-radius: 10px;
+    font-size: 1.5vh;
+    padding: 1vh;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.blockletcomment button:hover {
+    background-color: gainsboro;
+    transition: 0.5s;
+}
+
+.mescocomment {
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+    font-size: 2vh;
+}
+
+/*********************************************** Fin let comment css ***********************************/

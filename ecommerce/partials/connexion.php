@@ -1,0 +1,73 @@
+<?php
+    if(isset($_POST['submitform']))
+    {
+        if(!empty($_POST['email']) AND !empty($_POST['mdp']))
+        {
+            $email = htmlspecialchars($_POST['email']);
+            $mdp = hash('sha512', $_POST['mdp']);
+
+            $req = "SELECT * FROM Utilisateurs WHERE Email = :email AND Password = :mdp";
+            $reqco = $bdd->prepare($req);
+            $reqco->bindValue(':email', $email, PDO::PARAM_STR);
+            $reqco->bindValue(':mdp', $mdp, PDO::PARAM_STR);
+            $reqco->execute() or die(print_r($reqco->errorInfo()));
+            if($verif = $reqco->fetch())
+            {
+                $_SESSION['co'] = true;
+                $_SESSION['ID'] = $verif['ID'];
+                $_SESSION['Nom'] = $verif['Nom'];
+                $_SESSION['Prenom'] = $verif['Prenom'];
+                $_SESSION['Email'] = $verif['Email'];
+                $_SESSION['Numero'] = $verif['Numero'];
+                $_SESSION['Date_de_naissance'] = $verif['Date_de_naissance'];
+                $_SESSION['Ville'] = $verif['Ville'];
+                $_SESSION['Adresse'] = $verif['Adresse'];
+                $_SESSION['Code_postale'] = $verif['Code_postale'];
+                $_SESSION['Pays'] = $verif['Pays'];
+                $_SESSION['Sexe'] = $verif['Sexe'];
+                $_SESSION['Role'] = $verif['Rôle'];
+                $_SESSION['Date_creation'] = $verif['Date_creation'];
+                $_SESSION['Date_modification'] = $verif['Date_modification'];
+                header("Location: index.php");
+            }
+            else
+                $message = "Le mail ou le mot de passe ne corresponde pas";
+        }
+        else
+            $message = "Veuillez remplir tout les champs";
+    }
+    require_once("head.php");
+?>
+    <link rel="stylesheet" href="assets/styles/inscription.css">
+    <!-- fin header -->
+    <section class="main">
+        <div class="bloc">
+            <div class="ligne">
+                <div class="colonne">
+                    <div class="pannel">
+                        <div class="pannel-head">
+                            <h3 class="h3">Connecte-toi</h3>
+                        </div>
+                        <?php if(isset($message)) echo "<div class='erreurs'>$message</div>"; ?>
+                        <div class="pannel-body">
+                            <form class="form" role="form" action="" method="post">
+                                <div class="element-form">
+                                    <label>Votre email</label><br>
+                                    <input type="email" class="form-input" name="email" value="<?php if(isset($email)) {echo $email; } ?>" required><br><br>
+                                </div>
+                                <div class="element-form">
+                                    <label>Entrez votre mot de passe</label><br>
+                                    <input type="password" class="form-input" name="mdp" required><br><br>
+                                </div>
+                                <button type="submit" class="boutton-submit" name="submitform">Envoyer</button>
+                                <button type="button" class="boutton-lien"><span class="span">Vous n'avez de compte?</span> <a href="index.php?p=inscriptions" class="butco">Inscrivez-vous</a></button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </body>
+    <?php require_once("foot.php"); ?>

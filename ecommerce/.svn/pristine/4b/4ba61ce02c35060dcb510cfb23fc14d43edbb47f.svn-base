@@ -1,0 +1,256 @@
+/*------------------------------------ Debut footer --------------------------------------------*/
+
+.clear {
+    display: inline-block;
+    width: 100%;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+footer {
+    display: inline-block;
+    width: 100%;
+}
+
+.barbleu {
+    display: inline-block;
+    width: 100%;
+    height: 0.5vh;
+    background-color: #00bcd4;
+    display: flex;
+}
+
+.infofooter {
+    display: inline-block;
+    margin-top: 0;
+    width: 100%;
+    height: 40vh;
+    background-color: #424242;
+    display: flex;
+}
+
+.titfoot {
+    color: #757575;
+    font-weight: 300;
+    margin-top: 5vh;
+    padding-left: 10%;
+    font-size: 0.8vw;
+}
+
+.copy {
+    display: inline-block;
+    width: 100%;
+    background-color: black;
+}
+
+.copy span {
+    width: 2.4vw;
+    margin-left: 1vw;
+    display: inline-block;
+    height: 100%;
+}
+
+.copy span img {
+    margin-top: 3px;
+    height: 100%;
+}
+
+.credit span {
+    margin-right: 1vw;
+}
+
+.credit {
+    display: inline-block;
+    height: 100%;
+    float: right;
+    margin-right: 20%;
+}
+
+.textcopy {
+    color: #757575;
+    display: inline-block;
+    height: 100%;
+    margin-top: 1vh;
+    margin-left: 20%;
+}
+
+.infoscontact {
+    display: inline-block;
+    height: 100%;
+    width: 17%;
+    color: #cccccc;
+    font-weight: 300;
+}
+
+.infoscontact p {
+    text-align: justify;
+    padding-left: 10%;
+    font-size: 0.7vw;
+    font-weight: 300;
+    line-height: 0.5;
+}
+
+.infoscontact a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.access {
+    height: 100%;
+    display: inline-block;
+    width: 10%;
+}
+
+.access ul {
+    list-style: none;
+    padding-left: 10%;
+}
+
+.access ul li {
+    margin-top: 1vh;
+}
+
+.access ul li a {
+    text-decoration: none;
+    color: #cccccc;
+    font-weight: 300;
+    font-size: 0.7vw;
+    transition: 0.3s;
+}
+
+.access ul li a:hover {
+    color: #00bcd4;
+    transition: 0.3s;
+}
+
+.RS {
+    display: inline-block;
+    height: 100%;
+    width: 12%;
+}
+
+.RS ul {
+    list-style: none;
+    padding-left: 0%;
+    display: inline;
+}
+
+.RS ul li {
+    display: inline-block;
+    margin: 13%;
+}
+
+.RS ul li a img {
+    width: auto;
+    height: 1.6vw;
+}
+
+.newlet {
+    display: inline-block;
+    margin-left: 5vw;
+    height: 100%;
+    overflow: hidden;
+}
+
+.newlet h3 {
+    text-align: center;
+
+    color: #757575;
+    font-weight: 300;
+    margin-top: 5vh;
+    font-size: 1.2vw;
+}
+
+.newlet h2 {
+    text-align: center;
+    line-height: 0vh;
+    color: #bdbdbd;
+    font-size: 1.5vw;
+    font-weight: 300;
+}
+
+.textnews {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    margin-top: 2vh;
+    font-weight: 300;
+    color: #757575;
+}
+
+.inutnews {
+    height: 4vh;
+    width: 50%;
+    margin: auto;
+    margin-top: 2vh;
+}
+
+.mailnews {
+    height: 100%;
+    padding-left: 0.5vw;
+    background-color: #757575;
+    width: 70%;
+    border: solid 1px #757575;
+    display: inline-block;
+}
+
+.newlet form {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+::-webkit-input-placeholder {
+    color: #bdbdbd;
+    padding-left: 0.5vw;
+}
+
+:-moz-placeholder {
+    color: #bdbdbd;
+    padding-left: 0.5vw;
+
+}
+
+::-moz-placeholder {
+    color: #bdbdbd;
+    padding-left: 0.5vw;
+
+}
+
+:-ms-input-placeholder {
+    color: #bdbdbd;
+    padding-left: 0.5vw;
+
+}
+
+::-ms-input-placeholder {
+    color: #bdbdbd;
+    padding-left: 0.5vw;
+
+}
+
+.go {
+    border: solid #00bcd4;
+    display: inline-block;
+    width: 25%;
+    height: 110%;
+    margin: auto;
+    float: right;
+    background-color: #757575;
+    transition: 0.3s;
+    border-radius: 0px;
+}
+
+.go:hover {
+    background-color: #00bcd4;
+    transition: 0.3s;
+}
+.newsmessage{
+    text-align: center;
+    margin-top: 2vh;
+    color: red;
+}
+/*------------------------------------ fin footer --------------------------------------------*/

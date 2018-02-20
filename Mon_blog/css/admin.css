@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    background-image: url(../image/backadmin.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.acceuil a {
+    text-decoration: none;
+    color: white;
+}
+
+.banadmin {
+    width: 90%;
+    padding: 3vh;
+    margin: auto;
+    border-radius: 20px 20px 0px 0px;
+    font-size: 3vh;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .6);
+    color: white;
+    box-shadow: 6px 6px 4px black;
+}
+
+.grosblock {
+    width: 100%;
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.block {
+    width: 20%;
+    margin: 2%;
+    height: 60vh;
+    overflow: auto;
+    display: inline-block;
+}
+
+.titre {
+    font-size: 2vw;
+    margin-top: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    box-shadow: 6px 6px 4px black;
+    color: white;
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 10px 10px 0px 0px;
+}
+
+.user {
+    margin-top: 5%;
+    font-size: 2.5vh;
+    padding: 1vw;
+    background-color: rgba(0, 0, 0, .6);
+    color: white;
+    box-shadow: 6px 6px 4px black;
+}
+
+.user img {
+    margin-top: 2%;
+    width: 5%;
+}
+
+.comment {
+    margin-top: 5%;
+    padding: 1vw;
+    font-size: 1.2vh;
+    background-color: rgba(0, 0, 0, .6);
+    color: white;
+    box-shadow: 6px 6px 4px black;
+}
+
+.comment img {
+    margin-top: 5%;
+    width: 5%;
+}
+
+.formajout {
+    margin-top: 5%;
+}
+
+.formajout input {
+    margin-top: 3vh;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .6);
+    color: white;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    font-size: 1vw;
+}
+
+.buton {
+    width: 30%;
+    margin: auto;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+}

@@ -1,0 +1,205 @@
+body {
+    background-image: url(../images/backadmin.jpg);
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: 'Oxygen', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.blokprod {
+    border-radius: 10px;
+    margin: auto;
+    overflow: auto;
+    width: 1000px;
+    margin-top: 50px;
+    border: 1px solid #f0f0f0;
+    height: auto;
+}
+
+.tit {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    color: white;
+    margin-top: 22px;
+}
+
+.ligne {
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    display: flex;
+}
+
+label {
+    padding-top: 0;
+    font-weight: 700;
+    flex: 0 0 25%;
+    max-width: 25%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    display: inline-block;
+    margin-bottom: .5rem;
+    text-align: right;
+    line-height: 18px;
+    color: white;
+}
+
+.blockinput {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+input,
+select {
+    border-radius: 0;
+    border: 0;
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    padding: 13px 20px;
+    display: block;
+    width: 100%;
+    background-clip: padding-box;
+    overflow: visible;
+    margin-bottom: 20px;
+    border: 1px solid #f0f0f0;
+    background-color: transparent;
+    border-color: #bfbfbf;
+    color: #fff;
+}
+
+textarea {
+    border-radius: 0;
+    border: 0;
+    line-height: 34px;
+    font-size: 14px;
+    padding: 13px 20px;
+    display: block;
+    width: 100%;
+    background-clip: padding-box;
+    overflow: visible;
+    margin-bottom: 20px;
+    border: 1px solid #f0f0f0;
+    background-color: transparent;
+    border-color: #bfbfbf;
+    color: #fff;
+}
+
+.blockleft {
+    display: inline-block;
+    float: left;
+    margin-left: 1vw;
+    margin-bottom: 22px;
+}
+
+.bockimg {
+    display: inline-block;
+    width: 50%;
+    float: right;
+    margin-right: 1vw;
+    padding: 0;
+}
+
+.imgblock {
+    display: inline-block;
+    width: 30%;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+
+.blockbouton {
+    width: 145px;
+    height: 100px;
+    display: inline-block;
+    position: absolute;
+    margin-left: 50px;
+}
+
+.but {
+    width: 100%;
+    height: 100%;
+}
+
+.but button {
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    transition: 1s;
+    margin-top: 60px;
+}
+
+.but button:hover {
+    background-color: rgba(0, 0, 0, .6);
+    color: white;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.imgblock label {
+    display: inline-block;
+}
+
+.message {
+    display: inline-block;
+    margin-left: 20px;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.message a {
+    color: white;
+    text-decoration: none;
+}
+
+.lignes button {
+    width: 100px;
+    float: right;
+    margin-right: 40px;
+    transition: 0.3s;
+}
+
+.lignes button:hover {
+    background-color: rgba(0, 0, 0, .6);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s
+}

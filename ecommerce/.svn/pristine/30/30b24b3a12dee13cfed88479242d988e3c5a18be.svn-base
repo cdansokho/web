@@ -1,0 +1,186 @@
+* {
+    font-family: 'Oxygen', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.header {
+    background-color: #252525;
+    color: white;
+    width: 1200px;
+    margin: auto;
+    height: 45px;
+    max-height: 45px;
+}
+
+.head {
+    background-color: #252525;
+    text-align: center;
+    max-width: 100%;
+    margin: auto;
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+.user {
+    display: inline-block;
+    color: white;
+    margin-left: 20%;
+    font-weight: 300;
+    position: absolute;
+}
+
+.user a {
+    text-decoration: none;
+}
+
+.userstyle {
+    color: bisque;
+}
+
+.header div {
+    display: inline-block;
+    float: right;
+}
+
+.caisse {
+    width: 100px;
+    text-align: center;
+    height: 100%;
+    background-color: #48bac1;
+}
+
+.caisse img {
+    padding-top: 15px;
+}
+
+.clickrech {
+    height: 100%;
+    display: inline-block;
+}
+
+.recherche {
+    height: 100%;
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.recherche span {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.recherche img {
+    display: inline-block;
+    padding-top: 15px;
+    margin-right: 20px;
+}
+
+.barresearch {
+    display: inline-block;
+}
+
+.barresearch form {
+    display: inline-block;
+    padding-top: 13px;
+    height: auto;
+}
+
+.clickrech .barresearch input {
+    display: inline-block;
+    transition: 1s;
+    font-family: none;
+    font-size: 18px;
+    line-height: normal;
+}
+
+.co a {
+    height: 100%;
+    margin-right: 10px;
+    color: bisque;
+    width: 100px;
+    text-align: center;
+}
+
+.co p {
+    display: inline-block;
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.bara {
+    border-right: solid 2.1px white;
+    padding-right: 18px;
+}
+
+/*------------------------------------ Fin Head --------------------------------------------*/
+
+/*------------------------------------ DEbut menu --------------------------------------------*/
+
+.menu {
+    height: 100px;
+    color: #ffffff;
+    background-color: #ffffff;
+    position: relative;
+    width: 1200px;
+    margin: auto;
+}
+
+.Lmenu {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.liennav {
+    display: inline-block;
+    float: right;
+    margin-top: 40px;
+    width: 300px;
+}
+
+.logo {
+    display: inline-block;
+    margin-top: 17px;
+}
+
+.menu ul {
+    list-style: none;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    padding-left: 0;
+}
+
+.menu ul li {
+    display: inline;
+    margin: auto;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    padding: 20px 15px 33px;
+    color: black;
+    transition: 0.5s;
+
+}
+
+.menu ul li a:hover {
+    color: #48bac1;
+    transition: 0.5s;
+}
+
+.menu ul li a span {
+    color: #48bac1;
+}
+
+/*------------------------------------ fin menu --------------------------------------------*/

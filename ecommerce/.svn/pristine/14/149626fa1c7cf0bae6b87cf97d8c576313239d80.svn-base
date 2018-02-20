@@ -1,0 +1,27 @@
+.corp {
+    margin-top: 10vh;
+    display: inline-block;
+    width: 100%;
+}
+.corp img{
+    width: 100%;
+}
+.butonback {
+    text-align: center;
+    margin: auto;
+    margin-top: 5vh;
+}
+
+.butonback a {
+    border: solid;
+    text-decoration: none;
+    width: 100%;
+    color: white;
+    background: #47bac1;
+    padding: 10px 15px 10px 15px;
+    transition: 0.3s;
+}
+.butonback a:hover {
+    background: #6ac6cc;
+    transition: 0.3s;
+}

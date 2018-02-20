@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="assets/styles/header.css">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <!-- Debut Head -->
+    <?php if(isset($_SESSION['co']))
+    {
+        ?>
+    <div class="user">
+        <p>Bonjour <a href="index.php?p=profile"><span class="userstyle"><?= strtoupper($_SESSION['Nom']) ?> <?= ucfirst($_SESSION['Prenom']) ?></span></a> !</p>
+    </div>
+    <?php
+        $idUtilisateur = $_SESSION['ID'];
+        $req = $bdd->prepare("SELECT SUM(Quantite) AS Quantite FROM Produit_Utilisateur WHERE Produit_Utilisateur.ID_utilisateur = :idUtilisateur");
+        $req->bindParam(':idUtilisateur', $idUtilisateur);
+        $req->execute();
+        $donnee = $req->fetch();
+        $req->closeCursor();
+        if ($donnee['Quantite'] == '')
+            $donnee['Quantite'] = 0;
+    }
+    ?>
+        <div class="head">
+            <div class="header">
+                <?php if(isset($_SESSION['co'])) { ?>
+                <a href="index.php?p=commande">
+                    <?php } else {?>
+                    <a href="index.php?p=connexion">
+                        <?php }?>
+                        <div class="caisse">
+                            <img src="assets/images/shopping-cart.png" alt="caisse"> <span class="prix"><?php if(isset($idUtilisateur)) echo $donnee['Quantite']; else echo "0"; ?></span>
+                        </div>
+                    </a>
+                    <div class="clickrech">
+                        <div class="recherche">
+                            <div class="barresearch">
+                                <form action="index.php?p=search" method="post"><input type="search" name="result" value="<?php if(isset($result)) {echo $result; } ?>"></form>
+                            </div>
+                            <span><img src="assets/images/bar.png" alt="bar"></span><img src="assets/images/magnifying-glass.png" alt="recherche">
+                        </div>
+                    </div>
+                    <?php if(isset($_SESSION['co'])){ ?>
+                    <div class="co">
+                        <p><a href="index.php?p=deconnexion">Déconnexion</a></p>
+                        <?php if(isset($_SESSION['Rôle']) AND $_SESSION['Rôle'] == 1){ ?>
+                        <p><a href="index.php?p=admin">Espace Admin</a></p>
+                        <p><a href="index.php?p=ajout_prod">Ajouter un produit</a></p>
+                        <p><a href="index.php?p=add_categorie">Ajouter une Categorie</a></p>
+                        <?php }?>
+                    </div>
+                    <?php } else { ?>
+                    <div class="co">
+                        <p><a href="index.php?p=connexion" class="bara">Connexion</a></p>
+                        <p><a href="index.php?p=inscriptions">Inscription</a></p>
+                    </div>
+                    <?php }?>
+            </div>
+        </div>
+        <!-- Debut Memu -->
+        <div class="Lmenu">
+            <div class="menu">
+                <div class="logo">
+                    <a href="index.php"><img src="assets/images/logotitre.png" alt="logottitre"></a>
+                </div>
+                <div>
+                    <ul>
+                        <?php
+                if (isset($_GET['p']))
+                {
+                    if ($_GET['p'] == 'categories')
+                    {
+                        ?>
+                            <li><a href="index.php">ACCUEIL</a></li>
+                            <li><a href="index.php?p=categories"><span>CATEGORIES</span></a></li>
+                            <?php
+                    }
+                    else
+                    {
+                        ?>
+                                <li><a href="index.php">ACCUEIL</a></li>
+                                <li><a href="index.php?p=categories">CATEGORIES</a></li>
+                                <?php
+                    }
+                }
+                else
+                {
+                    ?>
+                                    <li><a href="index.php"><span>ACCUEIL</span></a></li>
+                                    <li><a href="index.php?p=categories">CATEGORIES</a></li>
+                                    <?php
+                }
+                ?>
+                    </ul>
+                </div>
+            </div>
+        </div>

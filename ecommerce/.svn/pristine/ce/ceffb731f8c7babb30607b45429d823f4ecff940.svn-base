@@ -1,0 +1,27 @@
+<?php require_once("partials/head.php"); ?>
+<!------------------------------------ Debut categorie ----------------------------------------------->
+<link rel="stylesheet" href="assets/styles/categories.css">
+  <div class="centrecat">
+      <div class="collection1">
+            <h1>TOUTES NOS CATEGORIES</h1>
+        </div>
+        <div class="centblock11">
+            <?php
+            $i = 1;
+            $req = $bdd->prepare("SELECT * FROM Categories ORDER BY ID DESC");
+            $req->execute();
+            while ($donnee = $req->fetch())
+            {
+                 ?>
+                <a href="index.php?p=produits&categorie=<?php echo $donnee['ID'] ?>"><div class="block11" <?php if($i == 2 ) echo 'id="marcent"' ?>>
+                    <img src="<?php echo $donnee['Path_image']?>" alt="sac2">
+                    <div class="cat11"><a href="index.php?p=produits&categorie=<?php echo $donnee['ID'] ?>"><?php echo $donnee['Libelle']?></a></div>
+                </div></a>
+                <?php
+                $i++;
+            }
+            ?>
+        </div>
+  </div>
+  <!------------------------------------ Fin categorie ----------------------------------------------->
+ <?php require_once("partials/foot.php"); ?>

@@ -1,0 +1,180 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Oct 21, 2017 at 11:43 AM
+-- Server version: 5.6.35
+-- PHP Version: 7.1.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `Blog`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles`
+--
+
+CREATE TABLE `articles` (
+  `id` int(11) NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `auteur` varchar(255) NOT NULL,
+  `presentation` text NOT NULL,
+  `contenu` text NOT NULL,
+  `datep` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`id`, `titre`, `auteur`, `presentation`, `contenu`, `datep`) VALUES
+(8, 'test', 'sdx', 'sdfhjgfaduygdsfjgkuydsfgk uysdagkfuydsag gsdagfiudsa guydguayg', '    require_once(&amp;quot;config.php&amp;quot;);\r\n    require_once(&amp;quot;config.php&amp;quot;);\r\n    require_once(&amp;quot;config.php&amp;quot;);\r\n    require_once(&amp;quot;config.php&amp;quot;);\r\n    require_once(&amp;quot;config.php&amp;quot;);\r\n    require_once(&amp;quot;config.php&amp;quot;);\r\n', '2017-10-20 23:12:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `commentaires`
+--
+
+CREATE TABLE `commentaires` (
+  `id_c` int(11) NOT NULL,
+  `auteur_c` varchar(255) NOT NULL,
+  `commentaire` text NOT NULL,
+  `id_art` int(11) NOT NULL,
+  `date_c` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `commentaires`
+--
+
+INSERT INTO `commentaires` (`id_c`, `auteur_c`, `commentaire`, `id_art`, `date_c`) VALUES
+(9, 'Admin', 'ok', 1, '2017-10-20 15:12:57'),
+(10, 'Admin', 'ok', 2, '2017-10-20 17:57:13'),
+(11, 'Admin', 'ok', 2, '2017-10-20 17:57:23'),
+(12, 'Admin', 'ok', 2, '2017-10-20 17:57:30'),
+(13, 'redom', 'ok', 2, '2017-10-20 19:02:47'),
+(14, 'Admin', 'ok', 5, '2017-10-20 20:13:25'),
+(15, 'MastaSD', 'ok', 5, '2017-10-20 20:16:13'),
+(17, 'Admin', 'ok', 7, '2017-10-20 21:22:51'),
+(18, 'sdx', 'ok', 8, '2017-10-20 23:14:38'),
+(19, 'sdx', 'ok', 8, '2017-10-20 23:14:41'),
+(21, 'sdx', ';fjojsojfsodjdsodsosofsfs', 6, '2017-10-20 23:23:49'),
+(22, 'sdx', 'efdeewf\'ew\'few\'f\'wef\'ewfwe.f eff\'ew\'fwe\'f\'', 6, '2017-10-20 23:24:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dislikes`
+--
+
+CREATE TABLE `dislikes` (
+  `id` int(11) NOT NULL,
+  `id_art` int(11) NOT NULL,
+  `id_users` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `id` int(11) NOT NULL,
+  `id_art` int(11) NOT NULL,
+  `id_users` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `pseudo` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mdp` text NOT NULL,
+  `lvl` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `pseudo`, `email`, `mdp`, `lvl`) VALUES
+(31, 'Admin', 'admin@admin.fr', '4beaad6292b7db0f9354e0d8b915ec0dbbc03a5a', 2),
+(32, 'sdx', 'sdx18@hotmail.fr', '4beaad6292b7db0f9354e0d8b915ec0dbbc03a5a', 1),
+(33, 'dfdf', 'ccc@fr.df', '4beaad6292b7db0f9354e0d8b915ec0dbbc03a5a', 2);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `articles`
+--
+ALTER TABLE `articles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `commentaires`
+--
+ALTER TABLE `commentaires`
+  ADD PRIMARY KEY (`id_c`);
+
+--
+-- Indexes for table `dislikes`
+--
+ALTER TABLE `dislikes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `articles`
+--
+ALTER TABLE `articles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `commentaires`
+--
+ALTER TABLE `commentaires`
+  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT for table `dislikes`
+--
+ALTER TABLE `dislikes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;

@@ -1,0 +1,1 @@
+<?php $bdd_Nom = "Reseaux_Social"; $bdd_Url = "localhost"; $bdd_Port = ""; $bdd_Login = "root"; $bdd_Mdp = "root"; $ConfigError = "";  ?>

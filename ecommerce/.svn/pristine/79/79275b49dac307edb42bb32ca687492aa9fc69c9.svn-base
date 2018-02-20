@@ -1,0 +1,53 @@
+<?php
+if(isset($_GET['id']))
+{
+    $idP = (int) $_GET['id'];
+    if(isset($_POST['submitformprod']))
+    {
+        $nomprod = htmlspecialchars(htmlentities($_POST['nomprod']));
+        $descriptprod = htmlspecialchars(htmlentities($_POST['descript']));
+
+            $requpdate = $bdd->prepare("UPDATE Categories SET 
+            Libelle = :nomprod,
+            Description = :descript,
+            Date_modification = NOW()
+            WHERE ID = :idp");
+            $requpdate->bindValue(':nomprod', $nomprod, PDO::PARAM_STR);
+            $requpdate->bindValue(':descript', $descriptprod, PDO::PARAM_STR);
+            $requpdate->bindValue(':idp', $idP, PDO::PARAM_INT);
+            $requpdate->execute();
+            
+             /* SI img 1 modifier */
+            if(isset($_FILES['img1']) AND !empty($_FILES['img1']['name'])) {
+               $tailleMax = 2097152;
+               $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+               if($_FILES['img1']['size'] <= $tailleMax) {
+                  $extensionUpload = strtolower(substr(strrchr($_FILES['img1']['name'], '.'), 1));
+                  if(in_array($extensionUpload, $extensionsValides)) {
+                     $chemin = "assets/images/categories/img1update_".$idP.".".$extensionUpload;
+                     $resultat = move_uploaded_file($_FILES['img1']['tmp_name'], $chemin);
+                     if($resultat) {
+                        $updateavatar = $bdd->prepare('UPDATE Categories SET Path_image = :img1 WHERE ID = :idp');
+                        $updateavatar->bindValue(':img1', $chemin, PDO::PARAM_STR);
+                        $updateavatar->bindValue(':idp', $idP, PDO::PARAM_INT);
+                        $updateavatar->execute();
+                        $updateavatar->closeCursor();
+                     } 
+                      else 
+                        header("Location: index.php?p=update_cat&img1=importfqil");
+                  } 
+                   else 
+                        header("Location: index.php?p=update_cat&img1=formatfail");
+               }
+                else 
+                   header("Location: index.php?p=update_cat&img1=sizefail");
+            }
+            else
+                header("Location: index.php?p=update_cat&img1=pasacces");
+             /* FIN SI img 1 modifier */
+            $idP = (int) $_GET['id'];
+            header("Location: index.php?p=update_cat&id=$idP&action=success");
+    }
+}
+    else
+        header("Location: index.php?p=update_cat&action=fail");

@@ -1,0 +1,77 @@
+<!------------------------------------ Debut footer ----------------------------------------------->
+<link rel="stylesheet" href="assets/styles/footer.css">
+<div class="clear"></div>
+<footer>
+    <div class="barbleu"></div>
+    <div class="infofooter">
+        <div class="infoscontact">
+            <h3 class="titfoot">PRENDRE CONTACT</h3>
+            <p>Appellez nous au : 09 00 00 00 00</p>
+            <p>e-mail : <a href="mailto:dansok_c@etna-alternance.net">dansok_c@etna-alternance.net</a></p>
+        </div>
+        <div class="access">
+            <h3 class="titfoot">ACCESSOIRES</h3>
+            <ul>
+                <li><a href="">Item 1</a></li>
+                <li><a href="">Item 1</a></li>
+                <li><a href="">Item 1</a></li>
+                <li><a href="">Item 1</a></li>
+            </ul>
+        </div>
+        <div class="access">
+            <h3 class="titfoot">ACCESSOIRES</h3>
+            <ul>
+                <li><a href="">Item 1</a></li>
+                <li><a href="">Item 1</a></li>
+                <li><a href="">Item 1</a></li>
+                <li><a href="">Item 1</a></li>
+            </ul>
+        </div>
+        <div class="access">
+            <h3 class="titfoot">ACCESSOIRES</h3>
+            <ul>
+                <li><a href="">Item 1</a></li>
+                <li><a href="">Item 1</a></li>
+                <li><a href="">Item 1</a></li>
+                <li><a href="">Item 1</a></li>
+            </ul>
+        </div>
+        <div class="RS">
+            <h3 class="titfoot">RESEAUX SOCIAUX</h3>
+            <ul>
+                <li><a href=""><img src="assets/images/facebook.png" alt="fb" ></a></li>
+                <li><a href=""><img src="assets/images/twitter.png" alt="tw" ></a></li>
+                <li><a href=""><img src="assets/images/google-plus.png" alt="goo" ></a></li>
+                <li><a href=""><img src="assets/images/pinterest.png" alt="pin" ></a></li>
+                <li><a href=""><img src="assets/images/linkedin.png" alt="lin" ></a></li>
+                <li><a href=""><img src="assets/images/instagram.png" alt="ins" ></a></li>
+            </ul>
+        </div>
+        <div class="newlet">
+            <h3>NEWSLETTER</h3>
+            <h2>INSCRIS TOI MAINTENANT</h2>
+            <div class="textnews">
+                Entrez votre adresse email et soyez alerter de nos nouveaux produits. Nous detestons le spam!
+            </div>
+            <form action="index.php?p=newsletter" method="post">
+                <div class="inutnews">
+                    <input class="mailnews" type="email" placeholder="Votre adresse mail" name="email">
+                    <input type="submit" class="go" value="GO !">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="copy">
+        <div class="textcopy">
+            <p>© 2017 Copyright by habi_a && dansok_c</p>
+        </div>
+        <div class="credit">
+            <span><img src="assets/images/visa.png" alt="visa"></span>
+            <span><img src="assets/images/paypal.png" alt="paypal"></span>
+            <span><img src="assets/images/mastercard.png" alt="mc"></span>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>

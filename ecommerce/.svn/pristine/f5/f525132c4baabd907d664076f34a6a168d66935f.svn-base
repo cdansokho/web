@@ -1,0 +1,116 @@
+.users {
+    width: 80%;
+    height: 420px;
+    margin: auto;
+    margin-top: 5vh;
+    overflow: auto;
+    text-align: center;
+    border-left: 3px solid #f0f0f0;
+    border-right: 3px solid #f0f0f0;
+        margin-bottom: 10vh;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 200px;
+    margin: auto;
+    margin-left: 20px;
+    -ms-overflow-y: hidden;
+    margin-bottom: 2vh;
+    text-align: center;
+    display: inline-block;
+}
+
+.card h1 {
+    font-size: 22px;
+}
+
+.card .avat {
+    width: 100%;
+}
+
+.title {
+    color: grey;
+    width: 100%;
+    height: 50px;
+}
+
+.card a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+.alert {
+    padding: 20px;
+    background-color: red;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.alert1 {
+    padding: 20px;
+    background-color: #48bac1;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.closebtn1 {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn1:hover {
+    color: black;
+}
+
+.tit {
+    height: 70px;
+    background-color: #f0f0f0;
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 2vh;
+}
+
+.tit h2 {
+    padding-left: 20px;
+    color: #797979;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.produit {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.blockprod {
+    border: solid;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 20px;
+}

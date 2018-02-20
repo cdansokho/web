@@ -1,0 +1,70 @@
+
+
+.contact-box {
+  background-color: #ffffff;
+  border: 1px solid #e7eaec;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.contact-box > a {
+  color: inherit;
+}
+.contact-box.center-version {
+  border: 1px solid #e7eaec;
+  padding: 0;
+}
+.contact-box.center-version > a {
+  display: block;
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+.contact-box.center-version > a img {
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.contact-box.center-version address {
+  margin-bottom: 0;
+}
+.contact-box .contact-box-footer {
+  text-align: center;
+  background-color: #ffffff;
+  border-top: 1px solid #e7eaec;
+  padding: 15px 20px;
+}
+.directory-list, .directory-info-row .social-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.directory-list li {
+    border-left: 3px solid #E9EAED;
+    display: table-cell;
+    width: 1%;
+}
+
+.directory-list li a {
+    display: block;
+    padding: 8px 0;
+    text-align: center;
+    text-transform: uppercase;
+    background: #fff;
+    color: #7A7676;
+    transition: all 0.2s ease-out 0s;
+    text-decoration: none;
+    border-radius: 5px;
+}
+#searchFriends {
+    width: 100%;
+    display: block;
+    height: 30px;
+    border: none;
+    background: white;
+    padding: 10px;
+}
+#searchFriends:hover {
+    box-shadow: 0 0 1px #b7b7b7;
+}

@@ -1,0 +1,65 @@
+.centrerletout {
+    width: 100%;
+    display: inline-block;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.centrecat {
+    margin: auto;
+    text-align: center;
+}
+
+.centblock11 {
+    text-align: center;
+    width: 1200px;
+    margin: auto;
+}
+
+.collection1 h1 {
+    font-weight: 300;
+    padding-bottom: 2vh;
+    margin-bottom: 5vh;
+}
+
+.centblock1 {
+    display: inline-block;
+    width: 100%;
+}
+
+.block11 {
+    display: inline-block;
+    width: 220px;
+    transition: 0.3s;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.block11 img {
+    width: 220px;
+    height: 264px;
+}
+
+.block11 a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.block11:hover a {
+    color: #47bac1;
+    transition: 0.3s;
+}
+
+.cat11 {
+    color: black;
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+.cat11 a {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+}
